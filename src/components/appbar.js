@@ -12,6 +12,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Avatar from '@mui/material/Avatar';
+import { getUserName, getUserPhoto } from '../utility/store';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -61,22 +62,6 @@ export default function PrimarySearchAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-          </IconButton> */}
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
-            ChatApp
-          </Typography>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -86,36 +71,7 @@ export default function PrimarySearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls="primary-search-account-menu"
-              aria-haspopup="true"
-              color="inherit"
-            >
-              
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-             
-            </IconButton>
-          </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          <Box >
             <IconButton
               size="large"
               aria-label="Profile"
@@ -123,8 +79,8 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <Avatar
-                  alt="Avatar"
-                  src='https://images.alphacoders.com/105/1053283.png'
+                  alt={getUserName()}
+                  src={getUserPhoto()}
                 />
             </IconButton>
           </Box>

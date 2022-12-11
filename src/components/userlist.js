@@ -7,14 +7,14 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import SendIcon from '@mui/icons-material/Send';
 
-export default function UserList({chatRooms}) {
+export default function UserList({chatRooms ,handleOpenChatRoom }) {
   
   return (
-    <List dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <List dense sx={{ width: '100%', maxWidth: "100%"}}>
       {chatRooms.map((item , index) => {
-        console.log(item)
         return (
           <ListItem
+            onClick={()=>{handleOpenChatRoom(item)}}
             key={item.id}
             secondaryAction={
               <SendIcon
