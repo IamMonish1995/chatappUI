@@ -4,38 +4,21 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Checkbox from '@mui/material/Checkbox';
 import Avatar from '@mui/material/Avatar';
+import SendIcon from '@mui/icons-material/Send';
 
-export default function UserList() {
-  const [checked, setChecked] = React.useState([1]);
-
-  const handleToggle = (value) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
-  };
-
+export default function UserList({chatRooms}) {
+  
   return (
     <List dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      {[0, 1, 2, 3].map((value) => {
-        const labelId = `checkbox-list-secondary-label-${value}`;
+      {chatRooms.map((item , index) => {
+        console.log(item)
         return (
           <ListItem
-            key={value}
+            key={item.id}
             secondaryAction={
-              <Checkbox
+              <SendIcon
                 edge="end"
-                onChange={handleToggle(value)}
-                checked={checked.indexOf(value) !== -1}
-                inputProps={{ 'aria-labelledby': labelId }}
               />
             }
             disablePadding
@@ -43,11 +26,11 @@ export default function UserList() {
             <ListItemButton>
               <ListItemAvatar>
                 <Avatar
-                  alt={`Avatar n°${value + 1}`}
-                  src={`/static/images/avatar/${value + 1}.jpg`}
+                  alt={item.user.name}
+                  src={item.user.photo}
                 />
               </ListItemAvatar>
-              <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+              <ListItemText id={item.id} primary={item.user.name} />
             </ListItemButton>
           </ListItem>
         );
