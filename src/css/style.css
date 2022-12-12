@@ -1,32 +1,29 @@
 .chatroomheader{
     height: 10vh;
-    background-color: #1e1e2436;
     position: sticky;
     top: 0;
 }  
   
-  main {
-    /* padding: 10px;
-    margin: 10vh 0 10vh; */
+  .mainChatArea {
     height: 60vh;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
   }
   
-  main::-webkit-scrollbar {
+  .mainChatArea::-webkit-scrollbar {
     width: 0.25rem;
   }
   
-  main::-webkit-scrollbar-track {
+  .mainChatArea::-webkit-scrollbar-track {
     background: #1e1e24;
   }
   
-  main::-webkit-scrollbar-thumb {
+  .mainChatArea::-webkit-scrollbar-thumb {
     background: #6649b8;
   }
   
-  form {
+  .textAreaForm {
     height: 10vh;
     position: fixed;
     bottom: 0;
@@ -38,11 +35,10 @@
     padding: 4% 0 0 5%;
   }
   
-  form Button {
+  .textAreaForm Button {
     width: 20%;
-    background-color: rgb(56, 56, 143);
   }
-  form .textarea {
+  .textAreaForm .textarea {
     width: 70%;
   }
   

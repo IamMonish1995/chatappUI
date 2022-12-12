@@ -41,13 +41,13 @@ export default function ChatRoom({ handleCloseChatRoom, chatRoomData }) {
         <ChatRoomHeader handleCloseChatRoom={handleCloseChatRoom} user={chatRoomData?.user} />
       </div>
       {/* Chat Area */}
-      <main>
+      <main className="mainChatArea">
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.uid} message={msg} />)}
         <span ref={messagesEndRef}></span>
       </main>
 
-      <form onSubmit={sendMessage}>
+      <form className="textAreaForm" onSubmit={sendMessage}>
         <TextField
           focused
           color="success"

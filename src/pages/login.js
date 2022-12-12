@@ -11,7 +11,6 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
@@ -29,7 +28,6 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme();
 
 export default function SignIn({ signin, isSignedIn }) {
   const navigate = useNavigate();
@@ -50,7 +48,6 @@ export default function SignIn({ signin, isSignedIn }) {
   }
 
   return (
-    <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -80,7 +77,6 @@ export default function SignIn({ signin, isSignedIn }) {
               id="userName"
               label="UserName"
               name="userName"
-              autoComplete="userName"
               autoFocus
             />
             <TextField
@@ -91,7 +87,6 @@ export default function SignIn({ signin, isSignedIn }) {
               label="Password"
               type="password"
               id="password"
-              autoComplete="current-password"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -126,6 +121,5 @@ export default function SignIn({ signin, isSignedIn }) {
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
-    </ThemeProvider>
   );
 }
